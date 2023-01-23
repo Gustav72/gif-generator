@@ -1,6 +1,8 @@
 const img = document.querySelector('img');
 
-fetch('https://api.giphy.com/v1/gifs/translate?api_key=nlthNgtAgJQWr97ibEs9WmgelEs3U2ve&s=cats', {
+let searchTerm = 'puppy'
+
+fetch('https://api.giphy.com/v1/gifs/translate?api_key=nlthNgtAgJQWr97ibEs9WmgelEs3U2ve&s=' + searchTerm, {
     mode: 'cors'
 })
 
