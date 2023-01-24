@@ -28,7 +28,6 @@ function generateGIF(searchTerm) {
     });
     
 }
-
 button.addEventListener('click', function() {
     
     form.addEventListener('submit', 
