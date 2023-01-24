@@ -7,25 +7,23 @@ let searchTerm = 'puppy'
 
 generateGIF(searchTerm);
 
-function generateGIF(searchTerm) {
+async function generateGIF(searchTerm) {
         
-    fetch('https://api.giphy.com/v1/gifs/translate?api_key=nlthNgtAgJQWr97ibEs9WmgelEs3U2ve&s=' + searchTerm, {
-        mode: 'cors'
-    })
+    try {
+        
+        const response = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=nlthNgtAgJQWr97ibEs9WmgelEs3U2ve&s=' + searchTerm, {
+            mode: 'cors'
+        })
     
-    .then(function(response) {
-        return response.json();
-    })
-    
-    .then(function(response) {
-        img.src = response.data.images.original.url;
-    })
+        const gifData = await response.json();
 
-    .catch((error) => {
+    img.src = gifData.data.images.original.url
+    } catch(error){
+
         console.error('There has been a problem with your fetch operation:', error);
             img.src = './error.gif';
     
-    });
+    };
     
 }
 button.addEventListener('click', function() {
